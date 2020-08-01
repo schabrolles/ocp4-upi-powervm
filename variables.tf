@@ -145,9 +145,13 @@ variable "public_key" {
     default     = ""
 }
 
-variable "rhel_subscription_username" {}
+variable "rhel_subscription_username" {
+    default = ""
+}
 
-variable "rhel_subscription_password" {}
+variable "rhel_subscription_password" {
+    default = ""
+}
 
 variable "rhcos_kernel_options" {
     description = "List of kernel arguments for the cluster nodes"
@@ -254,6 +258,11 @@ variable "cluster_domain" {
 # Should not be more than 14 characters
 variable "cluster_id_prefix" {
     default   = "test-ocp"
+}
+# Must consist of lower case alphanumeric characters, '-' or '.', and must start and end with an alphanumeric character
+# Length cannot exceed 14 characters when combined with cluster_id_prefix
+variable "cluster_id" {
+    default   = ""
 }
 
 variable "dns_forwarders" {

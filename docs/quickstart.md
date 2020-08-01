@@ -59,8 +59,8 @@ Update the following variables specific to your cluster requirement. All the var
 
 Update the following variables specific to the nodes.
 
- * `rhel_subscription_username` : (Required) The username required for RHEL subscription on bastion host.
- * `rhel_subscription_password` : (Required) The password required for RHEL subscription on bastion host.
+ * `rhel_subscription_username` : (Optional) The username required for RHEL subscription on bastion host. Leave empty if repos are already setup in the RHEL image and subscription is not needed.
+ * `rhel_subscription_password` : (Optional) The password required for RHEL subscription on bastion host.
  * `rhel_username` : (Optional) The user that we should use for the connection to the bastion host. The default value is set as "root user.
  * `keypair_name` : (Optional) Value for keypair used. Default is <cluster_id>-keypair.
  * `public_key_file` : (Optional) A pregenerated OpenSSH-formatted public key file. Default path is 'data/id_rsa.pub'.
@@ -75,7 +75,8 @@ Update the following variables specific to OCP.
  * `openshift_install_tarball` : (Required) HTTP URL for OpenShift install tarball.
  * `openshift_client_tarball` : (Required) HTTP URL for OpenShift client (`oc`) tarball.
  * `cluster_domain` : (Required) Cluster domain name. `<cluster_id>.<cluster_domain>` forms the fully qualified domain name.
- * `cluster_id_prefix` : (Required) Cluster identifier. Should not be more than 8 characters. Nodes are pre-fixed with this value, please keep it unique.
+ * `cluster_id_prefix` : (Required) Cluster identifier prefix. Should not be more than 8 characters. Nodes are pre-fixed with this value, please keep it unique.
+ * `cluster_id` : (Optional) Cluster identifier, when not set random value will be used. Length cannot exceed 14 characters when combined with cluster_id_prefix.
  * `release_image_override` : (Optional) This is set to OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE while creating ignition files. Not applicable when using local registry setup.
 
 ### Setup Additonal OpenShift Variables
