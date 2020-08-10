@@ -164,7 +164,7 @@ resource "null_resource" "install" {
         inline = [
             "rm -rf ocp4-playbooks",
             "echo 'Cloning into ocp4-playbooks...'",
-            "git clone https://github.com/ocp-power-automation/ocp4-playbooks --quiet",
+            "git clone https://github.com/schabrolles/ocp4-playbooks --quiet",
             "cd ocp4-playbooks && git checkout ${var.install_playbook_tag}"
         ]
     }
