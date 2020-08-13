@@ -102,6 +102,8 @@ locals {
         chrony_config           = var.chrony_config
         chrony_config_servers   = var.chrony_config_servers
         chrony_allow_range      = var.cidr
+        powervm_rmc             = var.powervm_rmc
+        smt_control             = var.smt_control
     }
 
     upgrade_vars = {

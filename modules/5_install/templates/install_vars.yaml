@@ -45,3 +45,6 @@ squid_acl_localnet:
 
 proxy_url: "${proxy_url}"
 no_proxy: "${no_proxy}"
+
+powervm_rmc: "${powervm_rmc}"
+smt_control: "${smt_control}"
