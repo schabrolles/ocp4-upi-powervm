@@ -73,6 +73,9 @@ variable "match_array" {}
 variable "chrony_config" { default = true }
 variable "chrony_config_servers" {}
 
+variable "powervm_rmc" {}
+variable "smt_control" {}
+
 variable "setup_squid_proxy" {}
 variable "proxy" {}
 
