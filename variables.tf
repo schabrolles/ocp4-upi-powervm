@@ -185,6 +185,18 @@ variable "chrony_config_servers" {
     # example: chrony_config_servers = [ {server = "10.3.21.254", options = "iburst"}, {server = "10.5.21.254", options = "iburst"} ]
 }
 
+variable "powervm_rmc" {
+    description = "Set to true to deploy RMC daemonset on Node with arch ppc64le"
+    type = bool
+    default = true
+}
+
+variable "smt_control" {
+    description = "Set to true to control SMT mode with node label SMT=(1,2,4,8)"
+    type = bool
+    default = false
+}
+
 ################################################################
 ### Instrumentation
 ################################################################
@@ -346,20 +358,4 @@ variable "local_registry_image" {
 variable "ocp_release_tag" {
     description = "The version of OpenShift you want to sync."
     default = "4.4.9-ppc64le"
-}
-
-################################################################
-# PowerVM variables 
-################################################################
-
-variable "powervm_rmc" {
-    description = "Set to true to deploy RMC daemonset on Node with arch ppc64le"
-    type = bool
-    default = true
-}
-
-variable "smt_control" {
-    description = "Set to true to control SMT mode with node label SMT=(1,2,4,8)"
-    type = bool
-    default = false
 }
