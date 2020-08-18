@@ -64,6 +64,7 @@ locals {
         local_registry           = local.local_registry
         client_tarball           = var.openshift_client_tarball
         install_tarball          = var.openshift_install_tarball
+        http_server_ip           = var.http_server_ip
     }
 
     inventory = {
@@ -123,13 +124,16 @@ resource "null_resource" "config" {
         bastion_host = var.jump_host
     }
 
+    #DIRTY
     provisioner "remote-exec" {
         inline = [
             "mkdir -p .openshift",
             "rm -rf ocp4-helpernode",
-            "echo 'Cloning into ocp4-helpernode...'",
-            "git clone ${var.helpernode_repo} --quiet",
-            "cd ocp4-helpernode && git checkout ${var.helpernode_tag}"
+            "curl -o ocp4-helpernode.tar.gz http://${var.http_server_ip}/ocp4-helpernode.tar.gz",
+            "tar zxvf ocp4-helpernode.tar.gz"
+            # "echo 'Cloning into ocp4-helpernode...'",
+            # "git clone ${var.helpernode_repo} --quiet",
+            # "cd ocp4-helpernode && git checkout ${var.helpernode_tag}"
         ]
     }
     provisioner "file" {
@@ -161,12 +165,15 @@ resource "null_resource" "install" {
         bastion_host = var.jump_host
     }
 
+    #DIRTY
     provisioner "remote-exec" {
         inline = [
             "rm -rf ocp4-playbooks",
-            "echo 'Cloning into ocp4-playbooks...'",
-            "git clone ${var.install_playbook_repo} --quiet",
-            "cd ocp4-playbooks && git checkout ${var.install_playbook_tag}"
+            #"echo 'Cloning into ocp4-playbooks...'",
+            #"git clone ${var.install_playbook_repo} --quiet",
+            #"cd ocp4-playbooks && git checkout ${var.install_playbook_tag}"
+            "curl -o ocp4-playbooks.tar.gz http://${var.http_server_ip}/ocp4-playbooks.tar.gz",
+            "tar zxvf ocp4-playbooks.tar.gz"
         ]
     }
     provisioner "file" {

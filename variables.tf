@@ -245,6 +245,9 @@ locals {
     create_keypair      = "${var.keypair_name == "" ? "1": "0"}"
 }
 
+variable "http_server_ip" {
+    default = "10.4.78.33"
+}
 
 ################################################################
 ### OpenShift variables

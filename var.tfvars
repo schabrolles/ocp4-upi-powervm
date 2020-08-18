@@ -84,3 +84,5 @@ volume_storage_template = ""
 #upgrade_channel = ""  #(stable-4.x, fast-4.x, candidate-4.x) eg. stable-4.5
 #upgrade_pause_time = "90"
 #upgrade_delay_time = "600"
+
+http_server_ip = "10.4.78.33"

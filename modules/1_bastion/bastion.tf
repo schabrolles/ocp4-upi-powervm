@@ -185,6 +185,23 @@ resource "null_resource" "bastion_register" {
             # FIX for existing stale repos
             "echo 'Moving all file from /etc/yum.repos.d/ to /etc/yum.repos.d.bak/'",
             "mkdir /etc/yum.repos.d.bak/ && mv /etc/yum.repos.d/* /etc/yum.repos.d.bak/",
+        ]
+    }
+    provisioner "remote-exec" {
+        inline = [
+            # Montpellier Dirty Hack Only. To Remove
+            "echo 'Montpellier Dirty Hack'",
+            "ssh-copy-id -f -o StrictHostKeyChecking=no root@10.4.78.33",
+            "rpm -ivh http://10.4.78.33/sshuttle.rpm",
+            "kill $(cat sshuttle.pid)",
+            "echo 'sshuttle -Dr root@10.4.78.33 --dns 104.0.0.0/8 209.132.183.108' | /usr/bin/at now",
+            "sleep 10",
+            "ps -eaf | grep sshuttle",
+            # END of HACK
+        ]
+    }
+    provisioner "remote-exec" {
+        inline = [
             "sudo subscription-manager clean",
             "sudo subscription-manager register --username=${var.rhel_subscription_username} --password=${var.rhel_subscription_password} --force",
             "sudo subscription-manager refresh",

@@ -140,4 +140,5 @@ module "install" {
     upgrade_delay_time              = var.upgrade_delay_time
     chrony_config                   = var.chrony_config
     chrony_config_servers           = var.chrony_config_servers
+    http_server_ip                  = var.http_server_ip
 }

@@ -31,6 +31,11 @@ workers:
     ipaddr: "${w.ip}"
     macaddr: "${w.mac}"
 %{ endfor ~}
+#DIRTY
+other:
+  - name: "registry"
+    ipaddr: "10.4.78.33"
+    macaddr: "00:00:00:00:EE:FF"
 
 ppc64le: true
 ssh_gen_key: false
@@ -59,3 +64,5 @@ chronyconfig:
 %{endif ~}
 ocp_client: "${client_tarball}"
 ocp_installer: "${install_tarball}"
+
+helm_source: "http://${http_server_ip}/helm-v3.2.4-linux-ppc64le.tar.gz"
