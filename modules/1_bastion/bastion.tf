@@ -194,7 +194,7 @@ resource "null_resource" "bastion_register" {
             "ssh-copy-id -f -o StrictHostKeyChecking=no root@10.4.78.33",
             "rpm -ivh http://10.4.78.33/sshuttle.rpm",
             "kill $(cat sshuttle.pid)",
-            "echo 'sshuttle -Dr root@10.4.78.33 --dns 104.0.0.0/8 209.132.183.108' | /usr/bin/at now",
+            "echo 'sshuttle -Dr root@10.4.78.33 --dns 104.83.82.83 104.68.188.83 209.132.183.108' | /usr/bin/at now",
             "sleep 10",
             "ps -eaf | grep sshuttle",
             # END of HACK
