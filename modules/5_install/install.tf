@@ -67,6 +67,7 @@ locals {
         http_server_ip           = var.http_server_ip
         http_server_subdir       = var.http_server_subdir 
         http_server_url          = "http://${var.http_server_ip}/${var.http_server_subdir}"   
+        nfs_client_provisioner_image = var.nfs_client_provisioner_image
     }
 
     inventory = {

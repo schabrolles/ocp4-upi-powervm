@@ -259,6 +259,10 @@ variable "powervm_rmc_image" {
     default= ""
 }
 
+variable "nfs_client_provisioner_image" {
+    default= ""
+}
+
 ################################################################
 ### OpenShift variables
 ################################################################
