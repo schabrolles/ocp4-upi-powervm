@@ -143,4 +143,5 @@ module "install" {
     http_server_ip                  = var.http_server_ip
     http_server_subdir              = var.http_server_subdir
     http_server_url                 = "http://${var.http_server_ip}/${var.http_server_subdir}"
+    powervm_rmc_image               = var.powervm_rmc_image
 }

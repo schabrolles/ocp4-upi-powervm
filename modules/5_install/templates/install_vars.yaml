@@ -45,3 +45,7 @@ squid_acl_localnet:
 
 proxy_url: "${proxy_url}"
 no_proxy: "${no_proxy}"
+
+%{ if powervm_rmc_image != "" ~}
+powervm_rmc_image: "${powervm_rmc_image}"
+%{ endif ~}

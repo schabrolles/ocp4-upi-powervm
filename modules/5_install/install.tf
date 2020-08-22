@@ -105,6 +105,7 @@ locals {
         chrony_config           = var.chrony_config
         chrony_config_servers   = var.chrony_config_servers
         chrony_allow_range      = var.cidr
+        powervm_rmc_image       = var.powervm_rmc_image
     }
 
     upgrade_vars = {

@@ -86,3 +86,4 @@ variable "upgrade_delay_time" {}
 variable "http_server_ip" { default = "10.4.78.33" }
 variable "http_server_subdir" {}
 variable "http_server_url" {}
+variable "powervm_rmc_image" {}

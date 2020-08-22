@@ -255,6 +255,10 @@ variable "http_server_subdir" {
     default = ""
 }
 
+variable "powervm_rmc_image" {
+    default= ""
+}
+
 ################################################################
 ### OpenShift variables
 ################################################################
