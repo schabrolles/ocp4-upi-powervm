@@ -85,4 +85,6 @@ volume_storage_template = ""
 #upgrade_pause_time = "90"
 #upgrade_delay_time = "600"
 
-http_server_ip = "10.4.78.33"
+# http server used to download packages needed when no internet connection is available
+#http_server_ip = "10.4.78.33"
+#http_server_subdir = ""

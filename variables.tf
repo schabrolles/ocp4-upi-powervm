@@ -246,7 +246,13 @@ locals {
 }
 
 variable "http_server_ip" {
+    description = "http server IP used to download needed packages when no internet connection is available"
     default = "10.4.78.33"
+}
+
+variable "http_server_subdir" {
+    description = "http server subdir where disconnected packages are located"
+    default = ""
 }
 
 ################################################################

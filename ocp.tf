@@ -141,4 +141,6 @@ module "install" {
     chrony_config                   = var.chrony_config
     chrony_config_servers           = var.chrony_config_servers
     http_server_ip                  = var.http_server_ip
+    http_server_subdir              = var.http_server_subdir
+    http_server_url                 = "http://${var.http_server_ip}/${var.http_server_subdir}"
 }

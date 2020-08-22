@@ -65,6 +65,8 @@ locals {
         client_tarball           = var.openshift_client_tarball
         install_tarball          = var.openshift_install_tarball
         http_server_ip           = var.http_server_ip
+        http_server_subdir       = var.http_server_subdir 
+        http_server_url          = "http://${var.http_server_ip}/${var.http_server_subdir}"   
     }
 
     inventory = {
@@ -129,7 +131,7 @@ resource "null_resource" "config" {
         inline = [
             "mkdir -p .openshift",
             "rm -rf ocp4-helpernode",
-            "curl -o ocp4-helpernode.tar.gz http://${var.http_server_ip}/ocp4-helpernode.tar.gz",
+            "curl -o ocp4-helpernode.tar.gz ${var.http_server_url}/ocp4-helpernode.tar.gz",
             "tar zxvf ocp4-helpernode.tar.gz"
             # "echo 'Cloning into ocp4-helpernode...'",
             # "git clone ${var.helpernode_repo} --quiet",
@@ -172,7 +174,7 @@ resource "null_resource" "install" {
             #"echo 'Cloning into ocp4-playbooks...'",
             #"git clone ${var.install_playbook_repo} --quiet",
             #"cd ocp4-playbooks && git checkout ${var.install_playbook_tag}"
-            "curl -o ocp4-playbooks.tar.gz http://${var.http_server_ip}/ocp4-playbooks.tar.gz",
+            "curl -o ocp4-playbooks.tar.gz ${var.http_server_url}/ocp4-playbooks.tar.gz",
             "tar zxvf ocp4-playbooks.tar.gz"
         ]
     }

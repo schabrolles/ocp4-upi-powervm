@@ -65,4 +65,4 @@ chronyconfig:
 ocp_client: "${client_tarball}"
 ocp_installer: "${install_tarball}"
 
-helm_source: "http://${http_server_ip}/helm-v3.2.4-linux-ppc64le.tar.gz"
+helm_source: "${http_server_url}/helm-v3.2.4-linux-ppc64le.tar.gz"
