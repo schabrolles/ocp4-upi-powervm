@@ -49,3 +49,10 @@ no_proxy: "${no_proxy}"
 %{ if powervm_rmc_image != "" ~}
 powervm_rmc_image: "${powervm_rmc_image}"
 %{ endif ~}
+
+%{ if disconnected_install_registry != "" ~}
+disconnected_install_registry: "${disconnected_install_registry}"
+%{ endif ~}
+%{ if disconnected_install_registry_cert != "" ~}
+disconnected_install_registry_cert: "~/.openshift/disconnected_install_registry.crt"
+%{ endif ~}

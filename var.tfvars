@@ -85,6 +85,28 @@ volume_storage_template = ""
 #upgrade_pause_time = "90"
 #upgrade_delay_time = "600"
 
+####################################################
+### Disconnected Installation
+
+## Create and mirror registry on Bastion (optional) 
+#enable_local_registry = true
+#ocp_release_tag = "4.5.5-ppc64le"
+
+## Use local http server to fetch installation packages (located in disconnected-packages-www)
 # http server used to download packages needed when no internet connection is available
 #http_server_ip = "10.4.78.33"
-#http_server_subdir = ""
+#http_server_subdir = "seb"
+
+## Use a local ocp install registry
+#sconnected_install_registry_ip = "10.4.78.33"
+#disconnected_install_registry_fqdn = "myregistry"
+#disconnected_install_registry = "myregistry:5000/ocp/openshift"
+#disconnected_install_registry_cert = "data/domain.crt"
+
+## Aditionnal image needed by Power (must be mirrored into a local registry)
+## powervm_rmc_image = "quay.io/powercloud/rsct-ppc64le:latest"
+#powervm_rmc_image = "myregistry:5000/powercloud/rsct-ppc64le:latest"
+## nfs_client_provisioner_image = docker.ioibmcom/nfs-client-provisioner-ppc64le:latest
+#nfs_client_provisioner_image = "myregistry:5000/ibmcom/nfs-client-provisioner-ppc64le:latest"
+
+

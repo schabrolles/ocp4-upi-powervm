@@ -88,3 +88,8 @@ variable "http_server_subdir" {}
 variable "http_server_url" {}
 variable "powervm_rmc_image" {}
 variable "nfs_client_provisioner_image" {}
+
+variable "disconnected_install_registry" { default = "" }
+variable "disconnected_install_registry_cert" { default = "" }
+variable "disconnected_install_registry_ip" { default = "192.168.0.13" }
+variable "disconnected_install_registry_fqdn" { default = "myregistry" }

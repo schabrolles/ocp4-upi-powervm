@@ -145,4 +145,8 @@ module "install" {
     http_server_url                 = "http://${var.http_server_ip}/${var.http_server_subdir}"
     powervm_rmc_image               = var.powervm_rmc_image
     nfs_client_provisioner_image    = var.nfs_client_provisioner_image
+    disconnected_install_registry   = var.disconnected_install_registry
+    disconnected_install_registry_cert   = var.disconnected_install_registry_cert
+    disconnected_install_registry_ip    = var.disconnected_install_registry_ip
+    disconnected_install_registry_fqdn  = var.disconnected_install_registry_fqdn
 }

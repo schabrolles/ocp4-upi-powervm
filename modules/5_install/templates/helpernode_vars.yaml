@@ -31,12 +31,12 @@ workers:
     ipaddr: "${w.ip}"
     macaddr: "${w.mac}"
 %{ endfor ~}
-#DIRTY
+%{ if disconnected_install_registry_fqdn != "" }
 other:
-  - name: "myregistry"
-    ipaddr: "10.4.78.33"
+  - name: "${split(".", disconnected_install_registry_fqdn) [0]}"
+    ipaddr: "${disconnected_install_registry_ip}"
     macaddr: "00:00:00:00:EE:FF"
-
+%{ endif ~}
 ppc64le: true
 ssh_gen_key: false
 

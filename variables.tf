@@ -376,3 +376,22 @@ variable "ocp_release_tag" {
     description = "The version of OpenShift you want to sync."
     default = "4.4.9-ppc64le"
 }
+
+variable "disconnected_install_registry" { 
+    description = "Name of the registry where ocp release has been mirrored (disconnected installation)"
+    default = "" 
+}
+variable "disconnected_install_registry_cert" {
+    description = "path to the certificate file to connect to the disconnected_install_registry"
+    default = ""
+}
+
+variable "disconnected_install_registry_ip" {
+    description = "IP address of the regsitry. Needed to add into bastion DNS"
+    default = "192.168.0.100"
+}
+
+variable "disconnected_install_registry_fqdn" {
+    description = "external ocp installation regsitry fqdn"
+    default = "myregistry"
+}

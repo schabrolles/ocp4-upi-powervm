@@ -68,6 +68,8 @@ locals {
         http_server_subdir       = var.http_server_subdir 
         http_server_url          = "http://${var.http_server_ip}/${var.http_server_subdir}"   
         nfs_client_provisioner_image = var.nfs_client_provisioner_image
+        disconnected_install_registry_ip = var.disconnected_install_registry_ip
+        disconnected_install_registry_fqdn = var.disconnected_install_registry_fqdn
     }
 
     inventory = {
@@ -107,6 +109,8 @@ locals {
         chrony_config_servers   = var.chrony_config_servers
         chrony_allow_range      = var.cidr
         powervm_rmc_image       = var.powervm_rmc_image
+        disconnected_install_registry = var.disconnected_install_registry
+        disconnected_install_registry_cert = var.disconnected_install_registry_cert
     }
 
     upgrade_vars = {
@@ -147,6 +151,10 @@ resource "null_resource" "config" {
     provisioner "file" {
         content     = templatefile("${path.module}/templates/helpernode_vars.yaml", local.helpernode_vars)
         destination = "~/ocp4-helpernode/helpernode_vars.yaml"
+    }
+    provisioner "file" {
+        source      = var.disconnected_install_registry_cert
+        destination = "~/.openshift/disconnected_install_registry.crt"
     }
     provisioner "remote-exec" {
         inline = [
