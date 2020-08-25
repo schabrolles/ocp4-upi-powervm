@@ -4,10 +4,10 @@
 
 ### Mirror Registries 
 
-Mirror the openshift registry to your local private registry.
+- Mirror the openshift registry to your local private registry.  
 example:`quay.io/openshift-release-dev/ocp-release:4.3.33-ppc64le`
 
-also mirror the following ppc64le images into your local repo (needed for nfs automatic provisioner and powerVM RMC (DLPAR*, LPM enablement))
+- Mirror also the following ppc64le images into your local repo (needed for nfs automatic provisioner and powerVM RMC (DLPAR*, LPM enablement))
 
 ```
 quay.io/powercloud/rsct-ppc64le
@@ -16,7 +16,7 @@ ibmcom/nfs-client-provisioner-ppc64le:latest
 
 > ***\* DLPAR note:** some changes like modifying the number a cores/threads or memory need a kubelet restart to update the new resource count into k8s.*
 
-Update the following variables into your terraform tfvars file.
+- Update the following variables into your terraform tfvars file.
 
 `disconnected_install_registry`: URL of the external registry used for openshift Installation 
 OPenshift release must be fetch and imported into this internal registry for disconnected installation.
@@ -37,9 +37,9 @@ you can point to your internal registry after having mirrored `ibmcom/nfs-client
 
 ### Copy Additional Packages on http server
 
-Just copy this pacakges on a http server accessible from all the nodes of the Cluster (bastion + master + worker)
+- Just copy this pacakges on a http server accessible from all the nodes of the Cluster (bastion + master + worker)
 
-Update the terraform variable file with the following:
+- Update the terraform variable file with the following:
 
 `http_server_ip`: IP of the http server used to store "disconnected packages"
 
